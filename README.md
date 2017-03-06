@@ -1,0 +1,1 @@
+This repository hosts a mini blog application built using Node.js with Express, Sequelize and React 
