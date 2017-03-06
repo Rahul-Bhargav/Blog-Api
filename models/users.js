@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       defaultValue: 'anonymous'
     },
-    passowrd: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
