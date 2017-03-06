@@ -29,6 +29,11 @@ module.exports = function (sequelize, DataTypes) {
           foreignkey: 'userId',
           as: 'posts'
         })
+        users.belongsToMany(models.users, {
+          as: 'follower',
+          through: 'followers',
+          foreignKey: 'followerId'
+        })
       }
     }
   })
