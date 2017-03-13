@@ -1,24 +1,39 @@
-const users = require('../models').users
 const posts = require('../models').posts
+const users = require('../models').users
 
 module.exports = {
   create (req, res) {
     posts.sync()
-    .then(() => {
-      return users.findById(req.body.userId)
-    })
-    .then((user) => {
-      console.log(req.body.images)
-      return posts.create({
-        title: req.body.title,
-        content: req.body.content,
-        // images: req.body.images,
-        userId: user.get('id')
+      .then(() => {
+        return posts.create({
+          title: req.body.title,
+          content: req.body.content,
+          images: req.body.images.split(','),
+          userId: req.body.userId
+        })
       })
+      .then(post => {
+        console.log(post)
+        res.status(201).send(post)
+      })
+      .catch(error => {
+        console.log(error)
+        res.status(400).send(error)
+      })
+  },
+
+  getPosts (req, res) {
+    posts.findAll({
+      where: {
+        'userId': req.params.userid
+      }
     })
-    .then(post => {
-      res.status(201).send(post)
-    })
-    .catch(error => res.status(400).send(error))
+      .then(result => {
+        res.status(201).send(result)
+      })
+      .catch(error => {
+        console.log(error)
+        res.status(400).send(error)
+      })
   }
 }
