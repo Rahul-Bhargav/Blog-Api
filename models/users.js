@@ -16,11 +16,6 @@ module.exports = function (sequelize, DataTypes) {
     nickname: {
       type: DataTypes.STRING,
       defaultValue: 'anonymous'
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
     }
   }, {
     classMethods: {
@@ -28,11 +23,6 @@ module.exports = function (sequelize, DataTypes) {
         users.hasMany(models.posts, {
           foreignkey: 'userId',
           as: 'posts'
-        })
-        users.belongsToMany(models.users, {
-          as: 'follower',
-          through: 'followers',
-          foreignKey: 'followerId'
         })
       }
     }
