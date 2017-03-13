@@ -1,6 +1,6 @@
-const users = require('./users')
-const posts = require('./posts')
-const followers = require('./followers')
+const users = require('./usersController')
+const posts = require('./postsController')
+const followers = require('./followersController')
 
 module.exports = {
   users,
