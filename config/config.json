@@ -1,20 +1,20 @@
 {
   "development": {
-    "username": "rahulsurabhi",
+    "username": "default",
     "password": null,
     "database": "blogdb",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "rahulsurabhi",
+    "username": "default",
     "password": null,
     "database": "blogdb",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "rahulsurabhi",
+    "username": "default",
     "password": null,
     "database": "blogdb",
     "host": "127.0.0.1",
