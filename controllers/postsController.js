@@ -1,5 +1,4 @@
 const posts = require('../models').posts
-const users = require('../models').users
 
 module.exports = {
   create (req, res) {
